@@ -2,71 +2,63 @@
 
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
-	<head>
-	    <meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	    <title>HTML 5 Boilerplate</title>
-		<link rel="stylesheet" href="/bootstrap-5.2.1-dist/css/bootstrap.min.css"/>
-	</head>
+	<head th:replace="layouts :: headTag"></head>
 	<body>
-	<div class="container">
-		<div class="row">
-			<form action="/members/saved" th:object="${addMemberHtml}" method="POST">
-			  <div class="form-group row">
-			    <label for="fName" class="col-sm-2 col-form-label">First Name</label>
-			    <div class="col-sm-10">
-			      <input th:field="${addMemberHtml.memberFname}" type="text" class="form-control" id="fName" placeholder="First Name">
-			    </div>
-			  </div>
-			  <div class="form-group row">
-			    <label for="lName" class="col-sm-2 col-form-label">Last Name</label>
-			    <div class="col-sm-10">
-			      <input th:field="${addMemberHtml.memberLname}" type="text" class="form-control" id="lName" placeholder="Last Name">
-			    </div>
-			  </div>
-			  <div class="form-group row">
-			    <label for="email" class="col-sm-2 col-form-label">Email</label>
-			    <div class="col-sm-10">
-			      <input th:field="${addMemberHtml.memberEmail}" type="email" class="form-control" id="email" placeholder="Email Address">
-			    </div>
-			  </div>
-			  <fieldset class="form-group">
-			    <div class="row">
-			      <legend class="col-form-label col-sm-2 pt-0">Job Title</legend>
-			      <div class="col-sm-10">
-			        <div class="form-check">
-			          <input th:field="${addMemberHtml.memberTitle}" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
-			          <label class="form-check-label" for="gridRadios1">
-			            Developer
-			          </label>
-			        </div>
-			        <div class="form-check">
-			          <input th:field="${addMemberHtml.memberTitle}" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-			          <label class="form-check-label" for="gridRadios2">
-			            Operator
-			          </label>
-			        </div>
-			        <div class="form-check">
-			          <input th:field="${addMemberHtml.memberTitle}" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
-			          <label class="form-check-label" for="gridRadios3">
-			            DevOps
-			          </label>
-			        </div>
-			      </div>
-			    </div>
-			  </fieldset>
-			  <div class="form-group row">
-			    <div class="col-sm-10">
-			      <button type="submit" class="btn btn-primary">Sign in</button>
-			    </div>
-			  </div>
-			</form>
+		<nav th:replace="layouts :: navBar"></nav>
+		<div class="container">
+			<div class="row">
+				<form action="/members/saved" th:object="${addMemberHtml}" method="POST">
+				  <div class="form-group row">
+				    <label for="fName" class="col-sm-2 col-form-label">First Name</label>
+				    <div class="col-sm-10">
+				      <input th:field="${addMemberHtml.memberFname}" type="text" class="form-control" id="fName" placeholder="First Name">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				    <label for="lName" class="col-sm-2 col-form-label">Last Name</label>
+				    <div class="col-sm-10">
+				      <input th:field="${addMemberHtml.memberLname}" type="text" class="form-control" id="lName" placeholder="Last Name">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				    <label for="email" class="col-sm-2 col-form-label">Email</label>
+				    <div class="col-sm-10">
+				      <input th:field="${addMemberHtml.memberEmail}" type="email" class="form-control" id="email" placeholder="Email Address">
+				    </div>
+				  </div>
+				  <fieldset class="form-group">
+				    <div class="row">
+				      <legend class="col-form-label col-sm-2 pt-0">Job Title</legend>
+				      <div class="col-sm-10">
+				        <div class="form-check">
+				          <input th:field="${addMemberHtml.memberTitle}" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+				          <label class="form-check-label" for="gridRadios1">
+				            Developer
+				          </label>
+				        </div>
+				        <div class="form-check">
+				          <input th:field="${addMemberHtml.memberTitle}" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+				          <label class="form-check-label" for="gridRadios2">
+				            Operator
+				          </label>
+				        </div>
+				        <div class="form-check">
+				          <input th:field="${addMemberHtml.memberTitle}" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+				          <label class="form-check-label" for="gridRadios3">
+				            DevOps
+				          </label>
+				        </div>
+				      </div>
+				    </div>
+				  </fieldset>
+				  <div class="form-group row">
+				    <div class="col-sm-10">
+				      <button type="submit" class="btn btn-primary">Sign in</button>
+				    </div>
+				  </div>
+				</form>
+			</div>
 		</div>
-	</div>
-	
-	
-	
 	
 	</body>
 

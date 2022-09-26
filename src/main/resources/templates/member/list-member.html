@@ -6,32 +6,14 @@
 	<head th:replace="layouts :: headTag"></head>
 	
 	<body>
-		<nav th:replace="layouts :: navBar"></nav>
 	
+		<nav th:replace="layouts :: navBar"></nav>
+		
 		<div class="container">
-			<div class="row">
-				<table>
-					<thead>
-						<tr>
-							<th>Member ID</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Email</th>
-							<th>Title</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="memberTemp : ${memberHtmlController}">
-							<td th:text="${memberTemp.memberId}"></td>
-							<td th:text="${memberTemp.memberFname}"></td>
-							<td th:text="${memberTemp.memberLname}"></td>
-							<td th:text="${memberTemp.memberEmail}"></td>
-							<td th:text="${memberTemp.memberTitle}"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+			<a th:href="@{/members/new}" class="btn btn-primary">Add member</a>	
 		</div>
+	
+		<div th:replace="layouts :: memberData"></div>
 	
 	</body>
 

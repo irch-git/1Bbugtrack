@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bugtrack1B.DAO.MemberRepository;
+import com.bugtrack1B.DAO.IMemberRepository;
 import com.bugtrack1B.entity.MemberEntity;
 
 @Controller
@@ -17,7 +17,7 @@ import com.bugtrack1B.entity.MemberEntity;
 public class MemberController {
 	
 	@Autowired
-	MemberRepository memRepo;
+	IMemberRepository memRepo;
 	
 	@GetMapping("/new")
 	public String displayForm(Model model) {
@@ -34,7 +34,7 @@ public class MemberController {
 		
 		memRepo.save(addMemberHtml);
 		
-		return "redirect:/members/new";
+		return "redirect:/members";
 	}
 	
 	@GetMapping

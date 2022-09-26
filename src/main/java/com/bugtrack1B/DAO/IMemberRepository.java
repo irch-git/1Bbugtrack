@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.bugtrack1B.entity.MemberEntity;
 
-public interface MemberRepository extends CrudRepository<MemberEntity, Long> {
+public interface IMemberRepository extends CrudRepository<MemberEntity, Long> {
 	
 	@Override
 	public List<MemberEntity> findAll();

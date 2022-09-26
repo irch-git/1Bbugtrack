@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace="layouts :: headTag"></head>
+	
+	<body>
+	
+		<nav th:replace="layouts :: navBar"></nav>
+		
+		<div class="container">
+			<div class="row">
+				<form th:action="@{/saved}" th:object="${addMemberHtml}" method="POST">
+					<div th:replace="layouts :: memberForm"></div>
+				</form>
+			</div>
+		</div>
+		
+		<div th:replace="layouts :: memberData"></div>
+	
+	</body>
+
+</html>

@@ -3,14 +3,16 @@
 
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
+	<!-- headTag -->
 	<head th:fragment="headTag">
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	    <title>HTML 5 Boilerplate</title>
-		<link rel="stylesheet" href="/bootstrap-5.2.1-dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" th:href="@{/bootstrap-5.2.1-dist/css/bootstrap.min.css}"/>
 	</head>
 	
+	<!-- navBar -->
 	<nav th:fragment="navBar" class="navbar navbar-expand-lg navbar-dark bg-dark">
 	  <div class="container-fluid">
 	    <a class="navbar-brand" href="#">Navbar</a>
@@ -20,17 +22,95 @@
 	    <div class="collapse navbar-collapse" id="navbarNav">
 	      <ul class="navbar-nav">
 	        <li class="nav-item">
-	          <a class="nav-link" href="#">Dashboard</a>
+	          <a class="nav-link" th:href="@{/}">Dashboard</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="#">All members</a>
+	          <a class="nav-link" th:href="@{/members}">All members</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="#">New member</a>
+	          <a class="nav-link" th:href="@{/members/new}">New member</a>
 	        </li>
 	      </ul>
 	    </div>
 	  </div>
 	</nav>
+	
+	<!-- memberForm -->
+	<div th:fragment="memberForm">
+	  <div class="form-group row">
+	    <label for="fName" class="col-sm-2 col-form-label">First Name</label>
+	    <div class="col-sm-10">
+	      <input th:field="${addMemberHtml.memberFname}" type="text" class="form-control" id="fName" placeholder="First Name">
+	    </div>
+	  </div>
+	  <div class="form-group row">
+	    <label for="lName" class="col-sm-2 col-form-label">Last Name</label>
+	    <div class="col-sm-10">
+	      <input th:field="${addMemberHtml.memberLname}" type="text" class="form-control" id="lName" placeholder="Last Name">
+	    </div>
+	  </div>
+	  <div class="form-group row">
+	    <label for="email" class="col-sm-2 col-form-label">Email</label>
+	    <div class="col-sm-10">
+	      <input th:field="${addMemberHtml.memberEmail}" type="email" class="form-control" id="email" placeholder="Email Address">
+	    </div>
+	  </div>
+	  <fieldset class="form-group">
+	    <div class="row">
+	      <legend class="col-form-label col-sm-2 pt-0">Job Title</legend>
+	      <div class="col-sm-10">
+	        <div class="form-check">
+	          <input th:field="${addMemberHtml.memberTitle}" th:value="Developer" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1">
+	          <label class="form-check-label" for="gridRadios1">
+	            Developer
+	          </label>
+	        </div>
+	        <div class="form-check">
+	          <input th:field="${addMemberHtml.memberTitle}" th:value="Operator" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2">
+	          <label class="form-check-label" for="gridRadios2">
+	            Operator
+	          </label>
+	        </div>
+	        <div class="form-check">
+	          <input th:field="${addMemberHtml.memberTitle}" th:value="DevOps" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3">
+	          <label class="form-check-label" for="gridRadios3">
+	            DevOps
+	          </label>
+	        </div>
+	      </div>
+	    </div>
+	  </fieldset>
+	  <div class="form-group row">
+	    <div class="col-sm-10">
+	      <button type="submit" class="btn btn-primary">Save</button>
+	    </div>
+	  </div>
+  	</div>
+	
+	<!-- memberData -->
+	<div th:fragment="memberData" class="container">
+		<div class="row">
+			<table>
+				<thead>
+					<tr>
+						<th>Member ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Title</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="memberTemp : ${memberHtmlController}">
+						<td th:text="${memberTemp.memberId}"></td>
+						<td th:text="${memberTemp.memberFname}"></td>
+						<td th:text="${memberTemp.memberLname}"></td>
+						<td th:text="${memberTemp.memberEmail}"></td>
+						<td th:text="${memberTemp.memberTitle}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
 </html>
